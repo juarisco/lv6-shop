@@ -7,6 +7,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.Slug = require('slug');
+Slug.defaults.mode['rfc3986'];
 
 /**
  * The following block of code may be used to automatically register your

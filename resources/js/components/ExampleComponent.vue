@@ -1,23 +1,46 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
+        <legend>Crear Categoría</legend>
+        <form>
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" v-model="nombre" class="form-control" name="nombre" id="name">
             </div>
-        </div>
+            <div class="form-group">
+                <label>Slug</label>
+                <input type="text" v-model="generateSlug" class="form-control" name="slug" id="slug">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <textarea class="form-control" id="description" cols="30" rows="5"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary float-right">Guardar</button>
+        </form>
+
+        <br>
+        <p>Nombre</p>
+        {{ nombre }}
+        <br>
+        <p>Slug-Slug</p>
+        {{ generateSlug }}
     </div>
 </template>
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        data() {
+            return {
+                nombre: '',
+            }
+        },
+        computed: {
+            generateSlug() {
+                return Slug(this.nombre, {lower: true})
+                // return Slug('I ♥ unicode', {lower: true})
+
+            }
         }
     }
 </script>

@@ -13,6 +13,7 @@
 
 Route::get('/', function () {
 //    return view('welcome');
+//    return view('temp.reemplazar');
     return view('tienda.index');
 });
 
